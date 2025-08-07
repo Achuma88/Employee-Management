@@ -1,0 +1,17 @@
+CREATE TABLE Employee (
+    EmpID INT PRIMARY KEY IDENTITY(1,1),
+    EmpName NVARCHAR(255) NOT NULL,
+	EmpSurname NVARCHAR(255) NOT NULL,
+    EmpEmail NVARCHAR(50) UNIQUE NOT NULL,
+	EmpPhone NVARCHAR(10) UNIQUE NOT NULL,
+	EmpTitle NVARCHAR(20) NOT NULL,
+    EmpPassword NVARCHAR(20),
+    EmpType NVARCHAR(20) 
+);
+
+CREATE TABLE Manager (
+    ManagerID INT PRIMARY KEY,
+    ManagerDep NVARCHAR(100),
+    FOREIGN KEY (ManagerID) REFERENCES Employee(EmpID)
+);
+
